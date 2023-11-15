@@ -4,8 +4,15 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import Avatar from '@/components/Avatar'
 import { useCallback, useState } from 'react'
 import MenuItem from '@/components/navbar/MenuItem'
-const UserMenu = () => {
+import useResgisterModal from '@/hooks/useRegisterModal'
+import useLoginModel from '@/hooks/useLoginModal'
 
+
+
+
+const UserMenu = () => {
+  const registerModal = useResgisterModal();
+  const loginModal = useLoginModel();
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = useCallback(() => { 
     setIsOpen((value) => !value);
@@ -33,8 +40,8 @@ const UserMenu = () => {
           onClick={toggleOpen}
           className='
                     p-4
-                    md:py-1
-                    md:px-2 
+                    md:py-2
+                    md:px-3 
                     border-[1px] 
                     border-neutral-200
                     flex
@@ -54,25 +61,21 @@ const UserMenu = () => {
       </div>
       {isOpen && (
         <div
-          className='absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm'
+          className='absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-15 text-sm'
         >
           <div className='flex flex-col cursor-pointer'>
             <>
               <MenuItem
-                onClick={() => { }}
+                onClick={loginModal.onOpen}
+                label='Log in'
+              />
+              <MenuItem
+                onClick={registerModal.onOpen}
                 label='Sign Up'
               />
               <MenuItem
                 onClick={() => { }}
-                label='Log in'
-              />
-                <MenuItem
-                onClick={() => { }}
                 label='Airbnb Philippines'
-              />
-                <MenuItem
-                onClick={() => { }}
-                label='Help Center'
               />
             </>
           </div>
