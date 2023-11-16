@@ -9,7 +9,7 @@ const Logo = () => {
       <Image
           src="/images/logo.svg"
           alt='airbnb'
-          className='hidden md:block cursor-pointer'
+          className='hidden xl:block cursor-pointer'
           width='100'
           height='100'
       />

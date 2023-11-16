@@ -42,11 +42,11 @@ const Input: React.FC<InputProps> = ({
         className={`
         peer 
         w-full
-        p-4 
+        p-3 
         pt-6 
         font-light
         bg-white 
-        border-2 
+        border-[0.1rem] 
         rounded-md 
         outline-none 
         transition 

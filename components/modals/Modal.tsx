@@ -70,34 +70,32 @@ const Modal: React.FC<ModalProps> = ({
           justify-center
           items-center
           flex
-          overflow-x-hidden
-          overflow-y-auto
           fixed
           inset-0
           z-50
           focus:outline-none
-          bg-neutral-800/70
+          bg-neutral-800/50
           "
       >
         <div
           className="
           relative
           w-full
-          md:w-3/6
+          md:w-4/6
           lg:w-2/6
-          xl:2-2/5
-          my-6
+          xl:2-2/3
           mx-auto
           h-full
           lg:h-auto
           md:h-auto
+       
           "
         >
           {/* Content */}
           <div
             className={`
           translate
-          duration-300
+          duration-500
           h-full
           ${showModal ? 'translate-y-0' : 'translate-y-full'}
           ${showModal ? 'opacity-100' : 'opacity-0'}
