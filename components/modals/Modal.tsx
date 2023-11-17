@@ -139,7 +139,7 @@ const Modal: React.FC<ModalProps> = ({
                   hover:opacity-70
                   transition
                   absolute
-                  left-9
+                  left-6
                     "
                 >
                   <IoMdClose size={18} />

@@ -3,12 +3,18 @@
 import { AiOutlineMenu } from 'react-icons/ai';
 import { IoIosGlobe } from 'react-icons/io';
 import Avatar from '@/components/Avatar';
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import MenuItem from '@/components/navbar/MenuItem';
 import useResgisterModal from '@/hooks/useRegisterModal';
 import useLoginModel from '@/hooks/useLoginModal';
+import { SafeUser } from '@/app/types';
+import { signOut } from 'next-auth/react';
 
-const UserMenu = () => {
+interface UserMenuProps {
+  currentUser?: SafeUser | null;
+}
+
+const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const registerModal = useResgisterModal();
   const loginModal = useLoginModel();
   const [isOpen, setIsOpen] = useState(false);
@@ -65,11 +71,23 @@ const UserMenu = () => {
       {isOpen && (
         <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-15 text-sm">
           <div className="flex flex-col cursor-pointer">
-            <>
-              <MenuItem onClick={registerModal.onOpen} label="Sign Up" />
-              <MenuItem onClick={loginModal.onOpen} label="Log in" />
-              <MenuItem onClick={() => {}} label="Airbnb Philippines" />
-            </>
+            {currentUser ? (
+              <>
+                <MenuItem onClick={() => {}} label="My Trips" />
+                <MenuItem onClick={() => {}} label="My Favorite" />
+                <MenuItem onClick={() => {}} label="My Reservations" />
+                <MenuItem onClick={() => {}} label="My Properties" />
+                <MenuItem onClick={() => {}} label="Airbnb My Home" />
+                <hr />
+                <MenuItem onClick={() => signOut()} label="Logout" />
+              </>
+            ) : (
+              <>
+                <MenuItem onClick={registerModal.onOpen} label="Sign Up" />
+                <MenuItem onClick={loginModal.onOpen} label="Log in" />
+                <MenuItem onClick={() => {}} label="Airbnb Philippines" />
+              </>
+            )}
           </div>
         </div>
       )}

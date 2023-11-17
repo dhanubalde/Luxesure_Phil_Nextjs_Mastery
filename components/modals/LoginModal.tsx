@@ -33,7 +33,7 @@ const LoginModal = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
-    signIn('credenials', {
+    signIn('credentials', {
       ...data,
       redirect: false,
     }).then((callback) => {
@@ -49,6 +49,10 @@ const LoginModal = () => {
       }
     });
   };
+  const onToggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
