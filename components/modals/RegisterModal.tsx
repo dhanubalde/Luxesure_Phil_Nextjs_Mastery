@@ -49,7 +49,11 @@ const RegisterModal = () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       {/*components for Heading.tsx */}
-      <Heading title="Welcome to Airbnb" subtitle="Create an a Account" />
+      <Heading
+        center
+        title="Welcome to Airbnb"
+        subtitle="Create an a Account"
+      />
       {/* components for Input.tsx */}
       <Input
         id="email"
@@ -86,7 +90,7 @@ const RegisterModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => signIn('google')}
       />
       <Button
         outline
