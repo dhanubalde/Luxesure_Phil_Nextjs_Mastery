@@ -1,14 +1,19 @@
 'use client';
 
+import React, { useCallback, useState } from 'react';
+
 import { AiOutlineMenu } from 'react-icons/ai';
 import { IoIosGlobe } from 'react-icons/io';
-import Avatar from '@/components/Avatar';
-import React, { useCallback, useState } from 'react';
-import MenuItem from '@/components/navbar/MenuItem';
-import useResgisterModal from '@/hooks/useRegisterModal';
-import useLoginModel from '@/hooks/useLoginModal';
+
 import { SafeUser } from '@/app/types';
 import { signOut } from 'next-auth/react';
+
+import Avatar from '@/components/Avatar';
+import MenuItem from '@/components/navbar/MenuItem';
+
+import useResgisterModal from '@/hooks/useRegisterModal';
+import useRentModal from '@/hooks/useRentModal';
+import useLoginModel from '@/hooks/useLoginModal';
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -16,16 +21,29 @@ interface UserMenuProps {
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const registerModal = useResgisterModal();
+  const rentModal = useRentModal();
   const loginModal = useLoginModel();
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
+
+  const onRent = useCallback(() => {
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+
+    // if (currentUser) {
+    //   toast.success(`Already Logged in Airbnb `);
+    // }
+    rentModal.onOpen();
+  }, [loginModal, currentUser, rentModal]);
+
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div
-          onClick={() => {}}
+          onClick={onRent}
           className="
                     hidden
                     md:block
@@ -41,7 +59,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
         >
           Airbnb your home
         </div>
-        <div className="hidden md:block text-md py-4 px-4 rounded-full items-center md:py-4 md:px-4 cursor-pointer  hover:bg-neutral-100 transition ">
+        <div
+          onClick={() => {}}
+          className="hidden md:block text-md py-4 px-4 rounded-full items-center md:py-4 md:px-4 cursor-pointer  hover:bg-neutral-100 transition "
+        >
           <IoIosGlobe />
         </div>
 
@@ -77,7 +98,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <MenuItem onClick={() => {}} label="My Favorite" />
                 <MenuItem onClick={() => {}} label="My Reservations" />
                 <MenuItem onClick={() => {}} label="My Properties" />
-                <MenuItem onClick={() => {}} label="Airbnb My Home" />
+                <MenuItem onClick={rentModal.onOpen} label="Airbnb My Home" />
                 <hr />
                 <MenuItem onClick={() => signOut()} label="Logout" />
               </>

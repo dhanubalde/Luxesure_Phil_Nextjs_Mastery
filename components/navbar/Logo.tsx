@@ -1,20 +1,20 @@
-"use client"
+'use client';
 
-import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const Logo = () => {
-    const router = useRouter();
+  const router = useRouter();
   return (
-      <Image
-          src="/images/logo.svg"
-          alt='airbnb'
-          className='hidden xl:block cursor-pointer'
-          width='100'
-          height='100'
-      />
-   
-  )
-}
+    <Image
+      onClick={() => router.push('/')}
+      src="/images/logo.svg"
+      alt="airbnb"
+      className="hidden xl:block cursor-pointer"
+      width="100"
+      height="100"
+    />
+  );
+};
 
-export default Logo
+export default Logo;

@@ -1,3 +1,5 @@
+"use client"
+
 import Container from '../Container';
 import { TbBeach } from 'react-icons/tb';
 import { GiWindmill } from 'react-icons/gi';

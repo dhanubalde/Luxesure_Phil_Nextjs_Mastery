@@ -8,7 +8,7 @@ interface AvatarProps {
 const Avatar: React.FC<AvatarProps> = ({ src }) => {
   return (
     <Image
-      className="rounded-full items-center"
+      className="rounded-full items-center border"
       src={src || '/images/placeholder.jpg'}
       alt="user"
       width="25"
