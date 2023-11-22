@@ -7,6 +7,7 @@ import { categories } from '../navbar/Categories';
 import CategoryInput from '../CategoryInput';
 import { FieldValues, useForm } from 'react-hook-form';
 import CountrySelect from '../CountrySelect';
+import Map from '@/components/Map';
 
 enum STEPS {
   CATEGORY = 0,
@@ -42,6 +43,7 @@ const RentModal = () => {
   });
 
   const category = watch('category');
+  const location = watch('location');
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -99,12 +101,18 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Which of these best describes your Location"
-          subtitle="Pick a category"
+          title="Where is your place located?"
+          subtitle="Help guest find you"
           center={false}
         />
-        <CountrySelect />
-      </div>  
+        
+        <CountrySelect
+          value={location}
+          onChange={(value) => setCustomValue('location', value)}
+        />
+
+        <Map />
+      </div>
     );
   }
   return (
