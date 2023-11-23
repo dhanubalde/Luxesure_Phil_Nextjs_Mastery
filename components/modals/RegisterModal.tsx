@@ -8,7 +8,7 @@ import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import useResgisterModal from '@/hooks/useRegisterModal';
 import Modal from './Modal';
 import Heading from '@/components/Heading';
-import Input from '@/components/Input';
+import Input from '@/components/inputs/Input';
 import { toast } from 'react-hot-toast';
 import Button from '../Button';
 import { signIn } from 'next-auth/react';
