@@ -42,8 +42,8 @@ const Counter: React.FC<CounterProps> = ({
       <div className="flex flex-row items-center gap-4">
         <div onClick={onReduce}
           className="
-            w-10
-            h-10
+            w-8
+            h-8
             rounded-full
             border-[1px]
             items-center
@@ -62,8 +62,8 @@ const Counter: React.FC<CounterProps> = ({
         </div>
         <div onClick={onAdd}
           className="
-            w-10  
-            h-10
+            w-8  
+            h-8
             rounded-full
             border-[1px]
             items-center
