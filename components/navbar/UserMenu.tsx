@@ -57,7 +57,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                     cursor-pointer
                   "
         >
-          Airbnb your home
+          LuxEste Philippines
         </div>
         <div
           onClick={() => {}}
@@ -98,7 +98,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <MenuItem onClick={() => {}} label="My Favorite" />
                 <MenuItem onClick={() => {}} label="My Reservations" />
                 <MenuItem onClick={() => {}} label="My Properties" />
-                <MenuItem onClick={rentModal.onOpen} label="Airbnb My Home" />
+                <MenuItem onClick={rentModal.onOpen} label="LuxEste Philippines" />
                 <hr />
                 <MenuItem onClick={() => signOut()} label="Logout" />
               </>
@@ -106,7 +106,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               <>
                 <MenuItem onClick={registerModal.onOpen} label="Sign Up" />
                 <MenuItem onClick={loginModal.onOpen} label="Log in" />
-                <MenuItem onClick={() => {}} label="Airbnb Philippines" />
+                <MenuItem onClick={() => {}} label="LuxEste Philippines" />
                 <hr />
                 <MenuItem onClick={() => {}} label="Help Center" />
               </>

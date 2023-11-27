@@ -11,8 +11,8 @@ const Logo = () => {
       src="/images/logo.svg"
       alt="airbnb"
       className="hidden xl:block cursor-pointer"
-      width="100"
-      height="100"
+      width="120"
+      height="120"
     />
   );
 };
