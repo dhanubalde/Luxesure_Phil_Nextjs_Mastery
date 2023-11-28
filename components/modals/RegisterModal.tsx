@@ -57,8 +57,8 @@ const RegisterModal = () => {
     <div className="flex flex-col gap-4">
       {/*components for Heading.tsx */}
       <Heading
-        center
-        title="Welcome to Airbnb"
+        center={false}
+        title="Welcome to LuxEste"
         subtitle="Create an a Account"
       />
       {/* components for Input.tsx */}

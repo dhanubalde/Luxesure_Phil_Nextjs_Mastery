@@ -11,6 +11,8 @@ interface IParams {
 
 const ListingPage = async ({ params }: { params: IParams }) => {
   
+  await new Promise(resolve => setTimeout(resolve,3000))
+
   const listing = await getListingById(params);
   const currentUser = await getCurrentUser();
 

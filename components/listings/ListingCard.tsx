@@ -8,6 +8,7 @@ import { useCallback, useMemo } from "react";
 import { format } from "date-fns"
 import Image from "next/image";
 import HeartButton from "../HeartButton";
+import { TbCurrencyPeso } from "react-icons/tb";
 import Button from "../Button";
 
 interface CardProps { 
@@ -75,7 +76,7 @@ const ListingCard: React.FC<CardProps> = ({
         ">
         <div className="flex flex-col gap-2 w-full">
           <div className="
-            aspect-square w-full relative overflow-hidden rounded-xl
+            aspect-square w-full relative overflow-hidden rounded-xl bg-[#8CEAFF]
           ">
             <Image
               fill
@@ -100,12 +101,13 @@ const ListingCard: React.FC<CardProps> = ({
           </div>
 
 
-          <div className="flex flex-row items-center gap-1">
-            <div className="font-semibold">
-              Php  { price}
+          <div className="flex flex-row items-center gap-2">
+           
+            <div className="font-semibold flex flex-row items-center">
+            <TbCurrencyPeso />{price}
             </div>
             {!reservation && (
-              <div className="font-light">
+              <div className="font-semibold bg-[#8CEAFF] px-2 rounded-3xl text-[#1DA2BF] text-[12px]">
                 night
               </div>
             )}
