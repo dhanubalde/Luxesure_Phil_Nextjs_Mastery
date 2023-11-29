@@ -96,7 +96,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ### Cloning the repository
 
 ```shell
-git clone https://github.com/dhanubalde/Airbnb-Next13.git
+git clone https://github.com/dhanubalde/LuxEste_Phil_Nextjs_Mastery.git
 ```
 
 ### Install packages
