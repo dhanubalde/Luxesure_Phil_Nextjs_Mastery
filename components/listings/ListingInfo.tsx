@@ -4,6 +4,7 @@ import { SafeUser } from "@/app/types";
 import useCountries from "@/hooks/useCountries";
 import { IconType } from "react-icons";
 import Avatar from "../Avatar";
+import ListingCategory from "./ListingCategory";
 
 interface ListingInfoProps { 
     user: SafeUser | null
@@ -39,7 +40,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
           <div>Hosted by:  {user?.name}</div>
           <Avatar src={user?.image}/>
         </div>
-        <div className=" flex flex-row items-center gap-2 font-semibold text-[#1DA2BF] text-[14px]">
+        <div className=" flex flex-row items-center gap-2 font-semibold text-[#1299b8] text-[12px]">
           <div className="rounded-3xl bg-[#8CEAFF] px-2">
             {guestCount} guests
           </div>
@@ -51,7 +52,14 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
           </div>
         </div>
       </div>
-
+      <hr />
+      {category && (
+        <ListingCategory
+          icon={category.icon}
+          label={category.label}
+          description={ category.description}
+        />
+      )}
     </div>
   )
 }
