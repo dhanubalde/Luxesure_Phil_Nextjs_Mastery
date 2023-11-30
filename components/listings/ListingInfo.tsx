@@ -60,6 +60,11 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
           description={ category.description}
         />
       )}
+      <hr />
+      <div className=" text-[16px] font-light text-neutral-600">
+        {description}
+      </div>
+      <hr />
     </div>
   )
 }
