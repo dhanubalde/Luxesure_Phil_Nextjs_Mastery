@@ -3,8 +3,14 @@
 import { SafeUser } from "@/app/types";
 import useCountries from "@/hooks/useCountries";
 import { IconType } from "react-icons";
+import  dynamic from "next/dynamic"
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
+
+
+const Map = dynamic(() => import('../inputs/Map'), {
+  ssr: false,
+});
 
 interface ListingInfoProps { 
     user: SafeUser | null
@@ -40,14 +46,14 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
           <div>Hosted by:  {user?.name}</div>
           <Avatar src={user?.image}/>
         </div>
-        <div className=" flex flex-row items-center gap-2 font-semibold text-[#1299b8] text-[12px]">
-          <div className="rounded-3xl bg-[#8CEAFF] px-2">
+        <div className=" flex flex-row items-center gap-2 font-semibold text-[#09a0c2] text-[12px]">
+          <div className="rounded-3xl bg-[#acf0ff] px-2">
             {guestCount} guests
           </div>
-          <div className="rounded-3xl bg-[#8CEAFF] px-2">
+          <div className="rounded-3xl bg-[#acf0ff] px-2">
             { roomCount} rooms
           </div>
-          <div className="rounded-3xl bg-[#8CEAFF] px-2">
+          <div className="rounded-3xl bg-[#acf0ff] px-2">
             { bathroomCount } bathrooms
           </div>
         </div>
@@ -65,6 +71,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
         {description}
       </div>
       <hr />
+      <Map center={coordinates}/>
     </div>
   )
 }

@@ -107,7 +107,7 @@ const ListingCard: React.FC<CardProps> = ({
             <TbCurrencyPeso />{price}
             </div>
             {!reservation && (
-              <div className="font-semibold bg-[#8CEAFF] px-2 rounded-3xl text-[#1DA2BF] text-[12px]">
+              <div className="font-semibold bg-[#acf0ff] px-2 rounded-3xl text-[#09a0c2] text-[12px]">
                 night
               </div>
             )}
