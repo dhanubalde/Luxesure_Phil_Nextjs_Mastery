@@ -1,6 +1,7 @@
 "use client"
 import { Range} from "react-date-range"
 import { TbCurrencyPeso } from "react-icons/tb";
+import Calendar from "../inputs/Calendar";
 
 interface ListingReservationProps { 
     price: number;
@@ -9,7 +10,7 @@ interface ListingReservationProps {
     onChangeDate: (value: Range) => void;
     onSubmit: () => void;
     disabled?: boolean;
-    disbledDates?: Date[];
+    disabledDates?: Date[];
 }
 
 const ListingReservation: React.FC<ListingReservationProps> = ({ 
@@ -19,7 +20,7 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
     onChangeDate,
     onSubmit,
     disabled,
-    disbledDates
+    disabledDates
 }) => {
   return (
     <div className=" bg-white rounded-xl border-[1px] border-neutral-200 overflow-hidden">
@@ -37,6 +38,23 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
         disabledDates={disabledDates}
         onChange={(value)=> onChangeDate(value.selection)}
       />
+      <hr />
+      <div className="
+        p-4
+        flex
+        flex-row
+        items-center
+        justify-between
+        font-semibold
+        text-lg
+      ">
+        <div>
+          total
+        </div>
+        <div className="flex flex-row items-center">
+          <TbCurrencyPeso/>{totalPrice}
+        </div>
+      </div>
   </div>
   )
 }

@@ -32,3 +32,14 @@ body :root {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+// for calendar elements
+
+.rdrMonth{
+  width: 100% !important;
+}
+
+.rdrCalendarWrapper{
+  width: 100% !important;
+  font-size: 15px !important;
+}
