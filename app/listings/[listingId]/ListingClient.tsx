@@ -2,7 +2,7 @@
 
 
 
-import { SafeUser, safeListing } from "@/app/types";
+import { SafeListing, SafeUser} from "@/app/types";
 import Container from "@/components/Container";
 import ListingHead from "@/components/inputs/ListingHead";
 import ListingInfo from "@/components/listings/ListingInfo";
@@ -14,6 +14,7 @@ import axios from "axios";
 import { eachDayOfInterval , differenceInCalendarDays } from "date-fns";
 import { useRouter } from "next/navigation";
 import {  useCallback, useEffect, useMemo, useState } from "react";
+import { Range } from "react-date-range";
 import { toast } from "react-hot-toast";
 
 
@@ -26,10 +27,10 @@ const initialDateRange = {
 
 interface ListingClientProps { 
     reservations?: Reservation[];
-    listing: safeListing & {
+    listing: SafeListing & {
         user: SafeUser
     }
-    currentUser: SafeUser | null
+  currentUser: SafeUser | null
 }
 
 const ListingClient: React.FC<ListingClientProps> = ({ 
@@ -57,9 +58,13 @@ const ListingClient: React.FC<ListingClientProps> = ({
   },[reservations])
 
 
+const category = useMemo(() => { 
+    return categories.find((item)=> item.label === listing.category)
+  },[listing.category])
+
   const [isLoading, setIsLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(listing.price);
-  const [dateRange, setDateRange] = useState(initialDateRange);
+  const [dateRange, setDateRange] = useState<Range>(initialDateRange);
   
   const onCreateReservation = useCallback(() => { 
     if (!currentUser) { 
@@ -106,9 +111,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
   },[dateRange, listing.price])
 
 
-  const category = useMemo(() => { 
-    return categories.find((item)=> item.label === listing.category)
-  },[listing.category])
 
   return (
     <Container>
