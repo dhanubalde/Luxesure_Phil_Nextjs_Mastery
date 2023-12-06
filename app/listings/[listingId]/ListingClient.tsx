@@ -2,14 +2,13 @@
 
 
 
-import { SafeListing, SafeUser} from "@/app/types";
+import { SafeListing, SafeReservation, SafeUser} from "@/app/types";
 import Container from "@/components/Container";
 import ListingHead from "@/components/inputs/ListingHead";
 import ListingInfo from "@/components/listings/ListingInfo";
 import ListingReservation from "@/components/listings/ListingReservation";
 import { categories } from "@/components/navbar/Categories";
 import useLoginModel from "@/hooks/useLoginModal";
-import { Reservation } from "@prisma/client"
 import axios from "axios";
 import { eachDayOfInterval , differenceInCalendarDays } from "date-fns";
 import { useRouter } from "next/navigation";
@@ -26,7 +25,7 @@ const initialDateRange = {
 
 
 interface ListingClientProps { 
-    reservations?: Reservation[];
+    reservations?: SafeReservation[];
     listing: SafeListing & {
         user: SafeUser
     }
@@ -46,15 +45,17 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
   const disabledDates = useMemo(() => { 
     let dates: Date[] = [];
-    reservations.forEach((reservations) => { 
+
+    reservations.forEach((reservations: any) => { 
       const range = eachDayOfInterval({
         start: new Date(reservations.startDate),
         end: new Date(reservations.endDate)
-      })
+      });
 
       dates = [...dates, ...range]
-      return dates;
+      
     })
+    return dates;
   },[reservations])
 
 
@@ -66,6 +67,7 @@ const category = useMemo(() => {
   const [totalPrice, setTotalPrice] = useState(listing.price);
   const [dateRange, setDateRange] = useState<Range>(initialDateRange);
   
+
   const onCreateReservation = useCallback(() => { 
     if (!currentUser) { 
       return loginModal.onOpen();
@@ -80,6 +82,7 @@ const category = useMemo(() => {
       toast.success("Listing reserved !!")
       setDateRange(initialDateRange);
       // redirect to /trips
+      router.push('/trips');
       router.refresh();
     }).catch(() => { 
       toast.error("Something went wrong !");

@@ -1,12 +1,12 @@
 import prisma from "@/lib/prismadb"
 
 interface IParams { 
-    listingId: string;
-    userId: string;
-    authorId: string
+    listingId?: string;
+    userId?: string;
+    authorId?: string
 }
 
-export default async function getReservation(
+export default async function getReservations(
     params: IParams
 ) { 
     try {
@@ -36,9 +36,8 @@ export default async function getReservation(
 
 
 
-        const safeReservations = reservations.map((
-            reservation
-        ) => ({
+        const SafeReservations = reservations.map(
+            (reservation) => ({
             ...reservation,
             createdAt: reservation.createdAt.toISOString(),
             startDate: reservation.startDate.toISOString(),
@@ -46,11 +45,12 @@ export default async function getReservation(
             listing: {
                 ...reservation.listing,
                 createdAt: reservation.listing.createdAt.toISOString(),
-            },
+            }
 
-        }));
+            })
+        );
 
-        return safeReservations;
+        return SafeReservations;
     } catch (error: any) { 
         throw new Error(error);
     }

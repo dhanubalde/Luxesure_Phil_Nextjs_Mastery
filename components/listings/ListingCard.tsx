@@ -1,8 +1,8 @@
 "use client"
 
-import { SafeUser, safeListing } from "@/app/types";
+import { SafeReservation, SafeUser, SafeListing } from "@/app/types";
 import useCountries from "@/hooks/useCountries";
-import { Listing, Reservation} from "@prisma/client"
+
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { format } from "date-fns"
@@ -12,8 +12,8 @@ import { TbCurrencyPeso } from "react-icons/tb";
 import Button from "../Button";
 
 interface CardProps { 
-    data: safeListing;
-    reservation?: Reservation;
+    data: SafeListing;
+    reservation?: SafeReservation;
     onAction?: (id: string) => void;
     disabled?: boolean;
     actionLabel?: string;
@@ -34,9 +34,8 @@ const ListingCard: React.FC<CardProps> = ({
     const { getByValue } = useCountries();
     const location = getByValue(data.locationValue);
 
-  const handleCancel = useCallback((
-    e: React.MouseEvent<HTMLButtonElement>
-  ) => { 
+  const handleCancel = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => { 
     e.stopPropagation();
 
     if (disabled) { 
