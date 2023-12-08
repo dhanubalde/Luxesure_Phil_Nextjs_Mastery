@@ -60,7 +60,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                     cursor-pointer
                   "
         >
-          LuxEste Philippines
+          Luxesure Philippines
         </div>
         <div
           onClick={() => {}}
@@ -98,11 +98,12 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             {currentUser ? (
               <>
                 <MenuItem onClick={() => router.push('/')} label="Home" />
+                <hr />
                 <MenuItem onClick={() => router.push('/trips')} label="My trips" />
                 <MenuItem onClick={() => router.push('/favorites')} label="My favorite" />
                 <MenuItem onClick={() => router.push('/reservations')} label="My reservations" />
                 <MenuItem onClick={() => router.push('/properties')} label="My properties" />
-                <MenuItem onClick={rentModal.onOpen} label="LuxEste Philippines" />
+                <MenuItem onClick={rentModal.onOpen} label="Create your Luxesure" />
                 <hr />
                 <MenuItem onClick={() => signOut()} label="Logout" />
               </>

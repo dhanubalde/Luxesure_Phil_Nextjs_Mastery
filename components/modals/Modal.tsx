@@ -81,7 +81,7 @@ const Modal: React.FC<ModalProps> = ({
           className="
           relative
           w-full
-          md:w-4/6
+          md:w-3/6
           lg:w-2/6
           xl:2-2/3
           mx-auto
