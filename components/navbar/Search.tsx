@@ -2,13 +2,14 @@
 
 import React, { useMemo } from 'react';
 import { BiSearch } from 'react-icons/bi';
-import { useRouter, useSearchParams } from 'next/navigation';
+
 import useSearchModel from '@/hooks/useSearchModal';
 import useCountries from '@/hooks/useCountries';
 import { differenceInDays } from 'date-fns';
+import { useSearchParams } from 'next/navigation';
+
 
 const Search = () => {
-  const router = useRouter();
   const searchModal = useSearchModel();
   const params = useSearchParams();
   const { getByValue } = useCountries();
