@@ -3,12 +3,16 @@
 import React from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { useRouter } from 'next/navigation';
+import useSearchModel from '@/hooks/useSearchModal';
 
 const Search = () => {
   const router = useRouter();
+  const searchModal = useSearchModel();
   return (
     <div
+      onClick={searchModal.onOpen}
       className="
+
         border-[1px]
         w-full
         md:w-auto

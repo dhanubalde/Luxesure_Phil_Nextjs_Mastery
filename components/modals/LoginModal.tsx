@@ -27,6 +27,7 @@ const LoginModal = () => {
   } = useForm<FieldValues>({
     defaultValues: {
       email: '',
+      name: '',
       password: '',
     },
   });
@@ -40,7 +41,7 @@ const LoginModal = () => {
       setIsLoading(false);
 
       if (callback?.ok) {
-        toast.success('Logged in Successfully');
+        toast.success(`Welcome to your Luxeste`);
         router.refresh();
         loginModal.onClose();
       }
@@ -52,6 +53,7 @@ const LoginModal = () => {
   const toggle = useCallback(() => {
     loginModal.onClose();
     registerModal.onOpen();
+   
   }, [loginModal, registerModal]);
 
   const bodyContent = (

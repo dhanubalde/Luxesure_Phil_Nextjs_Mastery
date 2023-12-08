@@ -8,6 +8,7 @@ import ToasterProvider from '@/providers/ToasterProvider';
 import LoginModal from '@/components/modals/LoginModal';
 import getCurrentUser from '@/actions/getCurrentUser';
 import RentModal from '@/components/modals/RentModal';
+import SearchModal from '@/components/modals/SearchModal';
 const font = Nunito({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default async function RootLayout({
           <ToasterProvider />
           <LoginModal />
           <RentModal />
+          <SearchModal/>
           <RegisterModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>

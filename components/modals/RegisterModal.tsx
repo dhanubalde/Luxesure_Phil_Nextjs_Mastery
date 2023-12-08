@@ -39,10 +39,11 @@ const RegisterModal = () => {
       .post('api/register', data)
       .then(() => {
         registerModal.onClose();
-        toast.success('Successfully Register');
+        loginModal.onOpen();
+        toast.success('Successfully Created User :)');
       })
       .catch((error) => {
-        toast.error('Something went wrong');
+        toast.error('Something went wrong !');
       })
       .finally(() => {
         setLoading(false);

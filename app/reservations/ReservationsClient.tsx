@@ -19,10 +19,10 @@ interface ReservationsClientProps {
     currentUser?: SafeUser | null
 }
 
-const ReservationsClient: React.FC<ReservationsClientProps> = (
+const ReservationsClient: React.FC<ReservationsClientProps> = ({
   reservations,
   currentUser
-) => {
+}) => {
 
   const router = useRouter();
   const [deletingId, setDeletingId] = useState('');
