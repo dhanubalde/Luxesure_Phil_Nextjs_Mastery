@@ -59,7 +59,7 @@ const RegisterModal = () => {
       {/*components for Heading.tsx */}
       <Heading
         center={false}
-        title="Welcome to LuxEste"
+        title="Welcome to Luxesure"
         subtitle="Create an a Account"
       />
       {/* components for Input.tsx */}
