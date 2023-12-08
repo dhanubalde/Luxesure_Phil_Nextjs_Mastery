@@ -16,9 +16,9 @@
 
 # Full Stack LuxEste Philippines Next.js-13 App-Router, React, Tailwindcss, Prisma, Mysql or MongoDB
 # Desktop View
+<img src="./resources/deskss.png">
 
 
-# Mobile View
 
 
 
