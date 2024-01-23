@@ -117,7 +117,7 @@ const LoginModal = () => {
           gap-2
         "
         >
-          <div>First time using LuxEste</div>
+          <div>First time using Luxesure</div>
           <div
             onClick={toggle}
             className="
